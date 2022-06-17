@@ -5,9 +5,9 @@ function Dogs(props) {
 
     // state to hold form data
     const [newForm, setNewForm] = useState({
-        coat: '',
-        maintenance: '',
-        size: ''
+        name: '',
+        size: '',
+        url: ''
     })
 
     // handle change function for form
@@ -20,9 +20,9 @@ function Dogs(props) {
         event.preventDefault();
         props.createDogs(newForm);
         setNewForm({
-            breedName: '',
-            maintenance: '',
-            size: ''
+            name: '',
+            size: '',
+            url: '',
         })
     }
 
