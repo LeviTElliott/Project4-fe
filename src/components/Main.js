@@ -6,7 +6,7 @@ import Show from '../pages/Show';
 function Main(props) {
     const [dogs, setDogs] = useState(null)
 
-    const URL = 'https://react-build-backend22.herokuapp.com/dogs/';
+    const URL = 'https://backend5-321.herokuapp.com/dog';
 
     const getDogs = () => {
         fetch(URL)

@@ -6,28 +6,28 @@ function Show(props) {
   const navigate = useNavigate()
   const { id } = useParams()
   const dogs = props.dogs
-  const dog = dogs.find(dog => dog._id === id)
+  const dog = dogs.find(dog => dogs._id === id)
   
 
-  const [editForm, setEditForm] = useState(dog)
+  const [searchForm, setsearchForm] = useState(dog)
 
-  // handleChange function for form
-  const handleChange = event => {
-      setEditForm({ ...editForm, [event.target.name]: event.target.value })
+  // handleSearch function for form
+  const handleSearch = event => {
+      setsearchForm({ ...searchForm, [event.target.name]: event.target.value })
   }
 
-  console.log(editForm)
+  console.log(searchForm)
 
   // handlesubmit for form
   const handleSubmit = event => {
       event.preventDefault()
-      props.updateDogs(editForm, id)
-      navigate('/')
+      props.updateDogs(searchForm, id)
+      navigate('/dogs')
   }
 
   const removeDogs = () => {
     props.deleteDogs(id)
-    navigate("/")
+    navigate("/dogs")
   }
 
 
@@ -36,30 +36,23 @@ function Show(props) {
           <button id="delete" onClick={removeDogs}>
             DELETE
           </button>
-          <h1>{dog.breedName}</h1>
-          <h2>{dog.maintenance}</h2>
+          <h1>{dog.name}</h1>
+          <h2>{dog.size}</h2>
           <form onSubmit={handleSubmit}>
               <input
                   type="text"
-                  value={editForm.breedName}
+                  value={searchForm.name}
                   name="breedName"
-                  placeholder="breed"
-                  onChange={handleChange}
+                  placeholder="Breed Name"
+                  onChange={handleSearch}
               />
               <input
                   type="text"
-                  value={editForm.maintenance}
+                  value={searchForm.size}
                   name="maintenance"
-                  placeholder="maintenance level"
-                  onChange={handleChange}
-              />
-              <input
-                  type="text"
-                  value={editForm.size}
-                  name="size"
-                  placeholder="Size"
-                  onChange={handleChange}
-              />
+                  placeholder="Dog Size"
+                  onChange={handleSearch}
+              /> 
               <input type="submit" value="Update dog" />
           </form>
       </div>

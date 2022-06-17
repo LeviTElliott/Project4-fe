@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <nav className='nav'>
-            <Link to='/'>
+            <Link to='/dogs'>
                 <div>Dog Allergies App</div>
             </Link>
         </nav>
